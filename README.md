@@ -2,7 +2,7 @@
 
 # Documentation and Tutorial
 
-You can find documentation for v2.0 of vuetable-3 [here](https://vuetable.com)
+You can find documentation for v2.0 of vuetable-3 [here](https://mannyyang.github.io/vuetable-3/)
 
 # Sample Codes
 
@@ -14,7 +14,7 @@ If you any question, please post your questions in the "Issues" section. Be sure
 ## NPM
 
 ```shell
-npm install vuetable-3 --save-dev
+npm install vuetable-3 --save
 ```
 
 # Contributions
