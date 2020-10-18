@@ -1,17 +1,6 @@
-[![npm](https://img.shields.io/npm/v/vuetable-2.svg)](https://www.npmjs.com/package/vuetable-2)
-[![npm](https://img.shields.io/npm/l/vuetable-2.svg?maxAge=2592000)]()
-
-# Vuetable-2 - data table simplify!
-
-### Vuetable-2 works with Vue 2.x, vuetable is for Vue 1.x
-
-If you're looking for the version that's working with Vue 1.x, please go to [`vuetable`](https://github.com/ratiw/vue-table) repo.
-
----
+# Vuetable-3 - data table simplify!
 
 ### Documentation and Tutorial
-
-Documentation is still under development, but you can view it at [https://ratiw.github.io/vuetable-2](https://ratiw.github.io/vuetable-2).  Thanks to @cristijora for the help.
 
 Meanwhile, check out
 - the [Tutorial](https://github.com/ratiw/vuetable-2-tutorial/wiki)
@@ -39,10 +28,6 @@ the onClick function can now be defined in the parent and the parent has Access 
 
 The original functionality still works
 
-# Breaking Changes
-## v1.6.0
-- The `icons` prop of VuetablePagination is now moved into the `css` prop object. See this [codepen](https://codepen.io/ratiw/pen/GmJayw).
-
 # Example Code
 - Clone the project
 - Go into the cloned directory
@@ -54,37 +39,7 @@ The original functionality still works
 ## NPM
 
 ```shell
-npm install vuetable-2 --save-dev
-```
-
-## Javascript via CDN
-Thanks to @cristijora for providing helps on this.
-```html
-// vuetable-2 dependencies
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
-// vuetable-2
-<script src="https://unpkg.com/vuetable-2@1.6.0"></script>
-Vue.use(Vuetable)
-```
-This is demonstrated in this [jsfiddle](http://jsfiddle.net/CristiJ/z11fe07p/1318/).
-
-The `.use` from above will register all the components globally.
-```javascript
-function install(Vue){
-  Vue.component("vuetable", Vuetable);
-  Vue.component("vuetable-pagination", VueTablePaginationInfo);
-  Vue.component("vuetable-pagination-dropdown", VueTablePaginationDropDown);
-  Vue.component("vuetable-pagination-info", VueTablePaginationInfo);
-}
-```
-
-Also you have the ability to access certain components if you need them:
-```javascript
-VueTable: VueTable.default/VueTable.VueTable,
-VueTablePagination: VueTable.VueTablePagination,
-VueTablePaginationInfo: VueTable.VueTablePaginationInfo,
-VueTablePaginationDropdown: VueTable.VueTablePaginationDropdown
+npm install vuetable-3 --save
 ```
 
 
