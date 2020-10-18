@@ -2,7 +2,7 @@
 
 # Documentation and Tutorial
 
-You can find documentation for v2.0 of vuetable-3 [here](https://mannyyang.github.io/vuetable-3/)
+You can find the documentation for vuetable-3 [here](https://mannyyang.github.io/vuetable-3/)
 
 # Sample Codes
 
