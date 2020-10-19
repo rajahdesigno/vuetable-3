@@ -8,6 +8,7 @@ import axios from 'axios'
 import VuetableFieldCheckbox from './components/VuetableFieldCheckbox.vue'
 import VuetableFieldHandle from './components/VuetableFieldHandle'
 import VuetableFieldSequence from './components/VuetableFieldSequence.vue'
+import CustomCell from './examples/CustomCell.vue'
 
 Vue.component('vuetable-field-checkbox', VuetableFieldCheckbox)
 Vue.component('vuetable-field-handle', VuetableFieldHandle)
@@ -178,6 +179,11 @@ let lang = {
 }
 
 let dataFields = [
+  {
+    name: CustomCell,
+    title: 'custom cell',
+    sortField: 'name'
+  },
   {
     name: '__handle',
     width: '40px'
