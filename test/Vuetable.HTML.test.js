@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import { mount, shallow } from '@vue/test-utils'
 import Vuetable from '@/components/Vuetable.vue'
 

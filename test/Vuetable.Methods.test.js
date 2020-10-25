@@ -1,7 +1,8 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import { mount, shallow } from '@vue/test-utils'
 import Vuetable from '@/components/Vuetable.vue'
 
+const app = createApp({})
 describe('Vuetable - Methods', () => {
 
   beforeAll( () => {
@@ -75,8 +76,8 @@ describe('Vuetable - Methods', () => {
 
       expect(wrapper.vm.trackBy).toEqual('code')
 
-      Vue.config.errorHandler = done
-      Vue.nextTick( () => {
+      app.config.errorHandler = done
+      app.nextTick( () => {
           expect(wrapper.vm.checkIfRowIdentifierExists()).toBe(true)
           done()
       })
@@ -117,8 +118,8 @@ describe('Vuetable - Methods', () => {
         'data': data,
       })
 
-      Vue.config.errorHandler = done
-      Vue.nextTick( () => {
+      app.config.errorHandler = done
+      app.nextTick( () => {
         let emitted = wrapper.emitted()
         expect(emitted).toHaveProperty('vuetable:loading')
         expect(emitted).toHaveProperty('vuetable:loaded')
@@ -156,7 +157,7 @@ describe('Vuetable - Methods', () => {
   })
 
   describe('normalizeFieldName', () => {
-    let dummyComponent = Vue.component('dummy', {
+    let dummyComponent = app.component('dummy', {
       template: `<div></div>`
     })
 
@@ -201,7 +202,7 @@ describe('Vuetable - Methods', () => {
   })
 
   describe('makeTitle', () => {
-    let dummyComponent = Vue.component('dummy', {
+    let dummyComponent = app.component('dummy', {
       template: `<div />`
     })
 

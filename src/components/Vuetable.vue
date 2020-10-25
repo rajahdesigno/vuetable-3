@@ -5,8 +5,8 @@
         <vuetable-col-group :is-header="true"/>
         <thead>
           <slot name="tableHeader" :fields="tableFields">
-            <template v-for="(header, headerIndex) in headerRows">
-              <component :is="header" :key="headerIndex"
+            <template v-for="(header, headerIndex) in headerRows" :key="headerIndex">
+              <component :is="header"
                 @vuetable:header-event="onHeaderEvent"
               ></component>
             </template>
@@ -20,8 +20,8 @@
       <vuetable-col-group/>
       <thead v-if="!isFixedHeader">
       <slot name="tableHeader" :fields="tableFields">
-        <template v-for="(header, headerIndex) in headerRows">
-          <component :is="header" :key="headerIndex"
+        <template v-for="(header, headerIndex) in headerRows" :key="headerIndex">
+          <component :is="header" 
             @vuetable:header-event="onHeaderEvent"
           ></component>
         </template>
@@ -31,9 +31,8 @@
         <slot name="tableFooter" :fields="tableFields"></slot>
       </tfoot>
       <tbody v-cloak class="vuetable-body">
-        <template v-for="(item, itemIndex) in tableData">
+        <template v-for="(item, itemIndex) in tableData" :key="itemIndex">
           <tr :item-index="itemIndex"
-            :key="itemIndex"
             :class="onRowClass(item, itemIndex)"
             @click="onRowClicked(item, itemIndex, $event)"
             @dblclick="onRowDoubleClicked(item, itemIndex, $event)"
@@ -101,8 +100,8 @@
         </template>
         <template v-if="lessThanMinRows">
           <tr v-for="i in blankRows" class="blank-row" :key="i">
-            <template v-for="(field, fieldIndex) in tableFields">
-              <td v-if="field.visible" :key="fieldIndex">&nbsp;</td>
+            <template v-for="(field, fieldIndex) in tableFields" :key="fieldIndex">
+              <td v-if="field.visible" >&nbsp;</td>
             </template>
           </tr>
         </template>

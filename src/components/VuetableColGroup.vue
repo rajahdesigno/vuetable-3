@@ -1,8 +1,8 @@
 <template>
   <colgroup>
-    <template v-for="(field, fieldIndex) in vuetable.tableFields">
+    <template v-for="(field, fieldIndex) in vuetable.tableFields" :key="fieldIndex">
       <template v-if="field.visible">
-      <col :key="fieldIndex"
+      <col 
           :style="{width: field.width}"
           :class="columnClass(field, fieldIndex)"
       >

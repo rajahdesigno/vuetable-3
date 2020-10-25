@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import { shallow, mount } from '@vue/test-utils'
 import Vuetable from '@/components/Vuetable.vue'
 import SampleComponent from '@/components/VuetableFieldHandle.vue'
-
+const app = createApp({})
 describe('Vuetable - Fields Definition', () => {
 
   beforeAll( () => {
@@ -150,8 +150,8 @@ describe('Vuetable - Fields Definition', () => {
     expect(wrapper.vm.tableFields[0].dataClass).toEqual('foo-baz')
     expect(wrapper.vm.tableData.length).toEqual(1)
 
-    Vue.config.errorHandler = done
-    Vue.nextTick( () => {
+    app.config.errorHandler = done
+    app.nextTick( () => {
       let el = wrapper.findAll('tbody tr td').at(0)
       expect(el.classes()).toContain('vuetable-td-code')
       expect(el.classes()).toContain('foo-baz')
@@ -212,8 +212,8 @@ describe('Vuetable - Fields Definition', () => {
 
     expect(wrapper.vm.tableFields[0].formatter).toEqual(myFormatter)
     
-    Vue.config.errorHandler = done
-    Vue.nextTick( () => {
+    app.config.errorHandler = done
+    app.nextTick( () => {
       expect(wrapper.find('tbody tr td.vuetable-td-code').text()).toBe('MYCODE')
       done()
     })

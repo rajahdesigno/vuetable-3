@@ -4,9 +4,10 @@ var version = require("./../package.json").version;
 var banner = "/**\n" + " * vuetable-3 v" + version + "\n" + " * https://github.com/ratiw/vuetable-3\n" + " * Released under the MIT License.\n" + " */\n";
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var StatsPlugin = require("stats-webpack-plugin");
+const { VueLoaderPlugin } = require('vue-loader');
 
 var utils = require('./utils')
-var merge = require('webpack-merge')
+const { merge } = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.conf')
 
 var cssFileName = "vuetable-3.css";
@@ -15,7 +16,7 @@ var jsFileName = "vuetable-3.js";
 if(process.env.MINIFY && process.env.MINIFY === "false"){
   jsFileName = "vuetable-3-full.js"
 }
-var minifyPlugins = [
+/*var minifyPlugins = [
   new webpack.LoaderOptionsPlugin({
     minimize: true,
     debug: false
@@ -28,11 +29,14 @@ var minifyPlugins = [
     comments: false,
     beautify: false
   }),
-];
+];*/
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({sourceMap: true,extract: true})
+    rules: utils.styleLoaders({
+      sourceMap: true,
+    //  extract: true
+    })
   },
   entry: path.join(__dirname, '..', "src/index.js"),
   output: {
@@ -42,6 +46,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     libraryTarget: "umd"
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: '"production"'
@@ -52,7 +57,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       banner: banner,
       raw: true
     }),
-    new ExtractTextPlugin({filename: cssFileName, allChunks: true}),
+    //new ExtractTextPlugin({filename: cssFileName, allChunks: true}),
     new StatsPlugin('stats.json')
   ],
   resolve: {
@@ -60,7 +65,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   }
 });
 
-if(process.env.MINIFY && process.env.MINIFY === "true"){
+/*if(process.env.MINIFY && process.env.MINIFY === "true"){
   webpackConfig.plugins = webpackConfig.plugins.concat(minifyPlugins);
-}
+}*/
 module.exports = webpackConfig;

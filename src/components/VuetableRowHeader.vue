@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <template v-for="(field, fieldIndex) in vuetable.tableFields">
+    <template v-for="(field, fieldIndex) in vuetable.tableFields" :key="fieldIndex">
       <template v-if="field.visible">
         <template v-if="vuetable.isFieldComponent(field.name)">
           <component :is="field.name"
@@ -8,7 +8,7 @@
             :is-header="true"
             :title="renderTitle(field)"
             :vuetable="vuetable"
-            :key="fieldIndex"
+            
             :class="headerClass('vuetable-th-component', field)"
             :style="{width: field.width}"
             @vuetable:header-event="vuetable.onHeaderEvent"

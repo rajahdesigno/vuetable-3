@@ -1,7 +1,8 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import { mount, shallow } from '@vue/test-utils'
 import Vuetable from '@/components/Vuetable.vue'
 
+const app = createApp({})
 describe('Vuetable - Computed properties', () => {
 
   beforeAll( () => {
@@ -68,7 +69,7 @@ describe('Vuetable - Computed properties', () => {
 
   describe('useDetailRow', () => {
 
-    const detailRow = Vue.component('detail-row', {
+    const detailRow = app.component('detail-row', {
       template: `<div>AAA</div>`
     })
 

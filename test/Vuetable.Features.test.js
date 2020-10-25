@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import { mount, shallow } from '@vue/test-utils'
 import Vuetable from '@/components/Vuetable.vue'
-
+const app = createApp({})
 describe('Vuetable - Features', () => {
 
   const mountVuetable = (fields) => mount(Vuetable, {
@@ -72,8 +72,8 @@ describe('Vuetable - Features', () => {
         }
       })
 
-      Vue.config.errorHandler = done
-      Vue.nextTick( () => {
+      app.config.errorHandler = done
+      app.nextTick( () => {
         let nodes = wrapper.findAll('td.vuetable-td-code')
         expect(nodes.at(0).text()).toEqual('111')
         expect(nodes.at(1).text()).toEqual('222')
@@ -96,8 +96,8 @@ describe('Vuetable - Features', () => {
         }
       })
 
-      Vue.config.errorHandler = done
-      Vue.nextTick( () => {
+      app.config.errorHandler = done
+      app.nextTick( () => {
         expect(wrapper.vm.tableData).toBe(data)
         expect(wrapper.vm.tablePagination).toBe(pagination)
 
@@ -126,8 +126,8 @@ describe('Vuetable - Features', () => {
       })
 
       expect(wrapper.vm.dataManager).toBe(func)
-      Vue.config.errorHandler = done
-      Vue.nextTick( () => {
+      app.config.errorHandler = done
+      app.nextTick( () => {
         expect(func).toHaveBeenCalledWith([], {
           'current_page': 1,
           'from': 1, 
